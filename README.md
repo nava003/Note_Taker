@@ -33,5 +33,5 @@ The following images show the web application's appearance and functionality:
 ![11-express-homework-demo-02](https://github.com/nava003/ADN_Note_Taker/assets/32070635/ab6021fe-75cb-45c2-949d-10c373488a30)
 
 ## Student Result
-Images Here
+Images Here  
 Link to Deployed Heroku Version: 
