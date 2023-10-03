@@ -1,10 +1,12 @@
 [
     {
+        "id": "001",
         "title": "Test Title",
         "text": "Test text"
     },
     {
-        "title": "Testing Note",
-        "text": "This is to test if this can even work"
+        "id": "2e2c54f6-72bc-49ae-86a2-0384608e06f7",
+        "title": "Brand new test",
+        "text": "To see if id works"
     }
 ]

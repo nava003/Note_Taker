@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
-const dbData = require('./db/db.json')
+const fs = require('fs').promises;
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const PORT = 3001;
@@ -18,46 +18,47 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
 })
 
-app.get('/api/notes', (req, res) => {
-    return res.json(dbData);
+app.get('/api/notes', async (req, res) => {
+    console.log("GET api/notes");
+    let dbData = await fs.readFile('./db/db.json', 'utf-8');
+    const parDBData = JSON.parse(dbData);
+    return res.json(parDBData);
 })
 
-app.post('/api/notes', (req, res) => {
+app.post('/api/notes', async (req, res) => {
     const { title, text } = req.body;
 
     if (title && text) {
-        const newNote = {
-            title,
-            text,
-        };
-        
-        fs.readFile('./db/db.json', 'utf-8', (err, data) => {
-            if (err) {
-                console.error(err);
-            } else {
-                const parsedNote = JSON.parse(data);
-                parsedNote.push(newNote);
-
-                fs.writeFile('./db/db.json', JSON.stringify(parsedNote, null, 4), (err) => {
-                    err ? console.error(err) : console.log('A new note has been added to db.json!')
-                })
+        try {
+            const newNote = {
+                id: uuidv4(),
+                title,
+                text,
+            };
+            
+            let readFS = await fs.readFile('./db/db.json', 'utf-8');
+            
+            const parsedNote = JSON.parse(readFS);
+            parsedNote.push(newNote);
+    
+            await fs.writeFile('./db/db.json', JSON.stringify(parsedNote, null, 4));
+    
+            const response = {
+                status: 'success',
+                body: newNote,
             }
-        })
-        
-
-        const response = {
-            status: 'success',
-            body: newNote,
+    
+            console.log(response);
+            res.status(200).json(response);
+        } catch (error) {
+            console.log(error);
+            res.status(500).json('Error in posting review');
         }
-
-        res.status(201).json(response);
-    } else {
-        res.status(500).json('Error in posting review');
     }
 })
 
 app.delete('/api/notes/:id', (req, res) => {
-
+    
 })
 
 app.get('*', (req, res) => {
