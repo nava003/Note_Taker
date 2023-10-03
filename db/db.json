@@ -8,5 +8,10 @@
         "id": "2e2c54f6-72bc-49ae-86a2-0384608e06f7",
         "title": "Brand new test",
         "text": "To see if id works"
+    },
+    {
+        "id": "002c31b6-cc69-4574-ae56-62b0cb1579b3",
+        "title": "New Note",
+        "text": "This should stay, but the next one should perish"
     }
 ]
