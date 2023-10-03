@@ -19,7 +19,6 @@ app.get('/notes', (req, res) => {
 })
 
 app.get('/api/notes', async (req, res) => {
-    console.log("GET api/notes");
     let dbData = await fs.readFile('./db/db.json', 'utf-8');
     const parDBData = JSON.parse(dbData);
     return res.json(parDBData);
@@ -44,11 +43,11 @@ app.post('/api/notes', async (req, res) => {
             await fs.writeFile('./db/db.json', JSON.stringify(parsedNote, null, 4));
     
             const response = {
-                status: 'success',
+                status: 'Success',
                 body: newNote,
             }
     
-            console.log(response);
+            console.log(response.status, '\nNew Note has been saved to db.json!');
             res.status(200).json(response);
         } catch (error) {
             console.log(error);

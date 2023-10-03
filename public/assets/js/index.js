@@ -72,7 +72,6 @@ const handleNoteSave = () => {
     text: noteText.value,
   };
   saveNote(newNote).then(() => {
-    console.log("Entering saveNote.then()");
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -119,7 +118,6 @@ const handleRenderSaveBtn = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
-  console.log("Entered renderNoteList()")
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
@@ -174,7 +172,6 @@ const renderNoteList = async (notes) => {
 
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => {
-  console.log("Entered getNRenderNotes()")
   getNotes().then(renderNoteList)
 };
 
