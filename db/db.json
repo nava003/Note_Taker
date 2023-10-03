@@ -10,8 +10,8 @@
         "text": "To see if id works"
     },
     {
-        "id": "002c31b6-cc69-4574-ae56-62b0cb1579b3",
-        "title": "New Note",
-        "text": "This should stay, but the next one should perish"
+        "id": "fe7aa0b7-fb71-4647-aa84-dc387aa38730",
+        "title": "App Successful",
+        "text": "Application is now ready to deploy with correct logic and modularized routes."
     }
 ]
