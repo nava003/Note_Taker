@@ -1,4 +1,4 @@
-# ADN_Note_Taker
+# Note_Taker
 
 ## User Story
 > `AS A small business owner`  
