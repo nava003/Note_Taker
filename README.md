@@ -33,7 +33,7 @@ The following images show the web application's appearance and functionality:
 ![11-express-homework-demo-02](https://github.com/nava003/ADN_Note_Taker/assets/32070635/ab6021fe-75cb-45c2-949d-10c373488a30)
 
 ## Student Result
-Link to Deployed Heroku Version: [https://adn-note-taker-app-d7648f89fc1e.herokuapp.com](https://adn-note-taker-app-d7648f89fc1e.herokuapp.com)  
+Link to Deployed Render Version: https://note-taker-c1yd.onrender.com 
 
 The following images are snapshots of the application interacting with the user accordingly:  
 ![EXP_C11_IMG1](https://github.com/nava003/ADN_Note_Taker/assets/32070635/6ccd69de-c341-43e3-a447-76fca0333fa3)
